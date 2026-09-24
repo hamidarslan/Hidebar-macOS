@@ -30,18 +30,18 @@ notarize_file() {
 APP_VERSION="$(tr -d '\r\n' < VERSION)"
 NAME="Hidebar-${APP_VERSION}-macOS-universal"
 if [[ "$NOTARIZE" == 1 ]]; then
-    ditto -c -k --sequesterRsrc --keepParent dist/Hidebar.app .build/notarization-upload.zip
+    ditto --norsrc --noextattr -c -k --keepParent dist/Hidebar.app .build/notarization-upload.zip
     notarize_file .build/notarization-upload.zip
     xcrun stapler staple dist/Hidebar.app
     xcrun stapler validate dist/Hidebar.app
     ./script/verify_bundle.sh dist/Hidebar.app 1
     spctl --assess --type execute --verbose=4 dist/Hidebar.app
 fi
-ditto -c -k --sequesterRsrc --keepParent dist/Hidebar.app "dist/$NAME.zip"
+ditto --norsrc --noextattr -c -k --keepParent dist/Hidebar.app "dist/$NAME.zip"
 STAGE=".build/dmg-stage"
 rm -rf "$STAGE"
 mkdir -p "$STAGE"
-ditto dist/Hidebar.app "$STAGE/Hidebar.app"
+ditto --norsrc --noextattr dist/Hidebar.app "$STAGE/Hidebar.app"
 ln -s /Applications "$STAGE/Applications"
 cp LICENSE "$STAGE/License.txt"
 cp PRIVACY.md "$STAGE/Privacy.md"

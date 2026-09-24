@@ -2,7 +2,7 @@
 
 There are no external Swift package dependencies. Hidebar uses Apple's AppKit, SwiftUI, ServiceManagement, Carbon, and system SF Symbols. Apple's `swift-stdlib-tool` bundles runtime compatibility libraries if needed by the compiled executable.
 
-The apple artwork was supplied by the project owner as `icons.png`. `Assets/AppIcon.png` preserves that artwork with its outside white region removed and its boundary unmatted. `script/make_icon.swift` converts the cleaned image into macOS icon sizes; `script/clean_icon.py` is an optional Pillow-based maintenance tool, not an app dependency. The generated image-editor alternative was not used. `Assets/MenuBar.svg` is an original illustrative diagram.
+The apple artwork was supplied by the project owner as `icons.png`. `Assets/AppIcon.png` preserves that artwork with its outside white region removed and its boundary unmatted. `script/make_icon.swift` converts the cleaned image into macOS icon sizes; `script/clean_icon.py` is an optional Pillow-based maintenance tool, not an app dependency. `Assets/MenuBar.svg` is an original illustrative diagram.
 
 Implementation references consulted:
 

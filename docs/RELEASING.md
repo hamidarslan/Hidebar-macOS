@@ -25,7 +25,7 @@ The initial 1.0.0 label identifies the first development baseline; it does not c
 
 From version 1.1.0, release packages use SwiftPM's optimized release configuration and contain both Apple Silicon and Intel slices. Ordinary `build_and_run.sh` development builds remain debug and use the host architecture unless `--release --universal` is supplied. The distributed app contains its resources and any required embedded Swift compatibility libraries; end users install no compiler or package manager.
 
-Default packages are ad-hoc signed, not Developer ID signed or notarized. From 1.2.0, App Sandbox and Hardened Runtime are enabled and validated. The development Mac has no valid code-signing identity. Store credentials in Keychain, never in Git. Do not disable Gatekeeper as part of packaging.
+Default packages are ad-hoc signed, not Developer ID signed or notarized. From 1.2.0, App Sandbox and Hardened Runtime are enabled and validated. Store credentials in Keychain, never in Git. Do not disable Gatekeeper as part of packaging.
 
 ### Notarized distribution
 
@@ -37,7 +37,7 @@ On a release Mac with Gatekeeper enabled, install your Developer ID Application 
 
 The script requires both variables, checks that the identity is available, and refuses to run the distribution path with Gatekeeper disabled. It signs nested libraries and the app, submits the app for notarization, requires Accepted status, staples and validates the app, builds the final ZIP and DMG, signs/notarizes/staples the DMG, assesses both with Gatekeeper, and creates checksums only after completion. Failed/rejected submissions stop packaging. The script does not upload anything to GitHub. Validate a quarantined browser download on a second protected Mac before promoting a stable release.
 
-The credentialed path is implemented but has not been run without a Developer ID identity. Never describe a default CI artifact or development preview as notarized. CI does not have signing credentials. An Apple privacy manifest is a declaration, not legal certification or App Store approval.
+The credentialed notarization path remains unvalidated. Never describe a default CI artifact or development preview as notarized. CI does not have signing credentials. An Apple privacy manifest is a declaration, not legal certification or App Store approval.
 
 Use `./script/verify_bundle.sh dist/Hidebar.app 1` to verify signatures, resources, both architectures, and the absence of unbundled runtime library dependencies. Validate the DMG with `hdiutil verify`, mount it read-only, check the app and Applications link, then test the extracted app from a path outside the checkout.
 
