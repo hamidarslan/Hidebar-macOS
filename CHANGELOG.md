@@ -4,6 +4,14 @@ Versions follow semantic versioning. Record unreleased changes here as they land
 
 ## Unreleased
 
+## 1.3.2 — 2026-09-24
+
+- Remove debug information containing local build paths from release executables before signing.
+- Reject distributable bundles containing local home or temporary build paths.
+- Exclude extended attributes and resource-fork metadata from archive copies.
+- Refresh public validation documentation and the preview label.
+- Supersede the withdrawn public v1.3.0 binary downloads; earlier source tags remain available.
+
 No changes recorded yet.
 
 ## 1.3.0 — 2026-09-17

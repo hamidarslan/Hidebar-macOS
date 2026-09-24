@@ -28,6 +28,10 @@ APP="$ROOT_DIR/dist/Hidebar.app"
 rm -rf "$STAGE"
 mkdir -p "$STAGE/Contents/MacOS" "$STAGE/Contents/Resources" "$STAGE/Contents/Frameworks"
 cp "$BIN_DIR/Hidebar" "$STAGE/Contents/MacOS/Hidebar"
+# Debug maps retain absolute source/object paths, even in optimized Swift builds.
+if [[ "$CONFIGURATION" == release ]]; then
+    xcrun strip -S "$STAGE/Contents/MacOS/Hidebar"
+fi
 swift script/make_icon.swift Assets/AppIcon.png "$ROOT_DIR/.build/Hidebar.iconset"
 iconutil -c icns "$ROOT_DIR/.build/Hidebar.iconset" -o "$STAGE/Contents/Resources/Hidebar.icns"
 cp Assets/AppIcon.png LICENSE "$STAGE/Contents/Resources/"
@@ -43,7 +47,7 @@ cat > "$STAGE/Contents/Info.plist" <<'PLIST'
 <key>CFBundleIconFile</key><string>Hidebar</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>CFBundleShortVersionString</key><string>1.1.0</string>
-<key>CFBundleVersion</key><string>4</string>
+<key>CFBundleVersion</key><string>6</string>
 <key>LSMinimumSystemVersion</key><string>14.0</string>
 <key>LSUIElement</key><true/>
 <key>NSPrincipalClass</key><string>NSApplication</string>
@@ -58,6 +62,9 @@ for LIB in "$STAGE/Contents/Frameworks/"*.dylib; do
     [[ -f "$LIB" ]] || continue
     codesign "${SIGN_ARGS[@]}" "$LIB"
 done
+if [[ "$CONFIGURATION" == release ]]; then
+    python3 script/verify_distribution.py "$STAGE"
+fi
 codesign "${SIGN_ARGS[@]}" --entitlements Config/Hidebar.entitlements "$STAGE"
 ./script/verify_bundle.sh "$STAGE" "$UNIVERSAL"
 if [[ "$MODE" != "--build-only" ]] && pgrep -x Hidebar >/dev/null; then pkill -x Hidebar; sleep 1; fi

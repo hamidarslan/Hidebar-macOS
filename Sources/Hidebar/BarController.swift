@@ -389,7 +389,7 @@ final class BarController: NSObject, ObservableObject {
         Shortcut: \(shortcutEnabled ? (shortcutAvailable ? "registered" : "unavailable") : "off")
         Shortcut activations this session: \(shortcutEvents)
         Launch at login: \(loginStatus)
-        Distribution: private preview; not notarized
+        Distribution: development preview; not notarized
         No account names, file paths, display identifiers, key contents, or app lists included.
         """
         diagnosticCopyMessage = ""

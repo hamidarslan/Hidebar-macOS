@@ -7,7 +7,7 @@
 <p align="center">Keep the menu bar icons you need. Tuck the rest behind a click.</p>
 
 <p align="center">
-  <a href="https://github.com/hamidarslan/Hidebar-macOS/releases/tag/v1.3.0"><strong>Download for macOS</strong></a>
+  <a href="https://github.com/hamidarslan/Hidebar-macOS/releases/tag/v1.3.2"><strong>Download for macOS</strong></a>
   &nbsp; · &nbsp;
   <a href="#make-it-yours">Quick start</a>
   &nbsp; · &nbsp;
@@ -24,11 +24,11 @@
 
 **The download is a complete macOS app. You do not need to install Xcode, Swift, Homebrew, Python, Rosetta on Apple Silicon, or any packages.**
 
-1. Download **[Hidebar 1.3.0.dmg](https://github.com/hamidarslan/Hidebar-macOS/releases/download/v1.3.0/Hidebar-1.3.0-macOS-universal.dmg)**.
+1. Download **[Hidebar 1.3.2.dmg](https://github.com/hamidarslan/Hidebar-macOS/releases/download/v1.3.2/Hidebar-1.3.2-macOS-universal.dmg)**.
 2. Open the disk image and drag **Hidebar.app → Applications**.
 3. Eject the disk image and open **Hidebar** from Applications.
 
-Prefer a ZIP? [Download the standalone app](https://github.com/hamidarslan/Hidebar-macOS/releases/download/v1.3.0/Hidebar-1.3.0-macOS-universal.zip). Both downloads contain the same universal app, with native Apple Silicon and Intel code. [SHA-256 checksums](https://github.com/hamidarslan/Hidebar-macOS/releases/download/v1.3.0/Hidebar-1.3.0-macOS-universal.sha256) are provided alongside them.
+Prefer a ZIP? [Download the standalone app](https://github.com/hamidarslan/Hidebar-macOS/releases/download/v1.3.2/Hidebar-1.3.2-macOS-universal.zip). Both downloads contain the same universal app, with native Apple Silicon and Intel code. [SHA-256 checksums](https://github.com/hamidarslan/Hidebar-macOS/releases/download/v1.3.2/Hidebar-1.3.2-macOS-universal.sha256) are provided alongside them.
 
 > **Current release:** this is a development preview, locally signed but not notarized by Apple. macOS may warn or block the first launch. This is a signing limitation, not a missing software dependency. The app itself needs no account or internet connection.
 
@@ -98,10 +98,6 @@ Your apple artwork is used in the app icon and settings. The original is preserv
 - **Removing:** turn off Launch at login, quit Hidebar, and move the app to Trash. See the [privacy policy](PRIVACY.md#retention-reset-and-removal) for local preferences and backup retention.
 
 The release targets macOS 14+, with both CPU architectures included. Local testing used Apple Silicon on macOS 27, including user-confirmed global shortcut activation with Finder focused. Intel, older macOS releases, multiple displays, physical right-click, and a full login cycle still need manual validation. See the [test record](docs/TESTING.md).
-
-## Public source baseline
-
-This repository begins with the source for the v1.3.0 preview. Earlier changelog entries describe product history; earlier Git history and development reviews are not included. The downloadable v1.3.0 app is unchanged. Documentation and repository links have been adapted for this public repository.
 
 ## For developers
 
