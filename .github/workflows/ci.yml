@@ -1,0 +1,45 @@
+name: macOS build and tests
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: macos-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Toolchain
+        run: swift --version
+      - name: Tests
+        run: ./script/test.sh
+      - name: Runtime sandbox privacy tests
+        run: ./script/test_privacy.sh
+      - name: Build and package
+        run: ./script/package.sh
+      - name: Validate standalone universal bundle
+        run: ./script/verify_bundle.sh dist/Hidebar.app 1
+      - name: Reject weakened privacy and signing controls
+        run: ./script/test_bundle_security.sh
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: Hidebar-universal-${{ github.sha }}
+          path: |
+            dist/*.zip
+            dist/*.dmg
+            dist/*.sha256
+          if-no-files-found: error
+          retention-days: 14

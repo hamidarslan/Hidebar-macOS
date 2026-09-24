@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250" role="img" aria-labelledby="title desc">
+  <title id="title">Your menu bar, simplified</title>
+  <desc id="desc">Command-drag unwanted icons to the left of the divider. Keep the Hidebar arrow and essential icons to its right.</desc>
+  <rect width="1000" height="250" rx="24" fill="#f5f6f2"/>
+  <text x="42" y="43" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="600" letter-spacing="2" fill="#31594a">YOUR MENU BAR, SIMPLIFIED</text>
+  <rect x="38" y="66" width="924" height="96" rx="20" fill="#fff" stroke="#e1e6df"/>
+  <rect x="59" y="83" width="398" height="62" rx="13" fill="#eaf0eb"/>
+  <g fill="none" stroke="#456b5a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M121 119h33c15-2 12-22 0-23-4-17-28-14-31 0-16 0-20 21-2 23z"/>
+    <path d="M213 121v-12a19 19 0 0 1 38 0v12m-38-8v14h8v-17h-8m38 3v14h-8v-17h8"/>
+    <path d="M318 105a19 19 0 0 1 32-8l6 8m0-15v15h-15m13 19a19 19 0 0 1-32 7l-6-8m0 15v-15h15"/>
+    <circle cx="413" cy="114" r="15"/><path d="M413 104v11l7 5"/>
+  </g>
+  <path d="M500 88v50" stroke="#9bae9f" stroke-width="2"/>
+  <rect x="531" y="90" width="47" height="47" rx="12" fill="#31594a"/>
+  <path d="m551 103 10 11-10 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="none" stroke="#35423b" stroke-width="3" stroke-linecap="round">
+    <path d="M716 106q17-17 34 0m-27 8q10-10 20 0m-13 8q3-3 6 0"/>
+    <rect x="786" y="101" width="39" height="23" rx="5"/><path d="M829 108v9"/>
+  </g>
+  <rect x="790" y="105" width="30" height="15" rx="2" fill="#35423b"/>
+  <text x="863" y="121" font-family="system-ui,-apple-system,sans-serif" font-size="21" font-weight="600" fill="#35423b">9:41</text>
+  <text x="61" y="198" font-family="system-ui,-apple-system,sans-serif" font-size="16" font-weight="600" fill="#31594a">⌘-drag here to tuck away</text>
+  <text x="531" y="198" font-family="system-ui,-apple-system,sans-serif" font-size="16" fill="#596b60">One click to reveal</text>
+  <text x="786" y="198" font-family="system-ui,-apple-system,sans-serif" font-size="16" fill="#596b60">Keep visible</text>
+  <text x="42" y="230" font-family="system-ui,-apple-system,sans-serif" font-size="12" fill="#77867b">Illustration · Arrange the real icons in your Mac’s menu bar.</text>
+</svg>
